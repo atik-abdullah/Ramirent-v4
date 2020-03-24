@@ -8,7 +8,8 @@
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.5",
     "sequelize-cli": "^5.5.1",
-    "serverless": "^1.67.0"
+    "serverless": "^1.67.0",
+    "serverless-sequelize-migrations": "^1.0.5"
   },
   "devDependencies": {},
   "scripts": {

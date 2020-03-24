@@ -5,6 +5,8 @@ provider:
   profile: ramirentuser
   region: us-east-1
   timeout: 30
+  environment: ${file(../envs/dev.json)}
+
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -15,13 +17,15 @@ provider:
         - s3:PutObject
       Resource:
         - "arn:aws:s3:::destinationbucket100/*"
+plugins:
+    - serverless-sequelize-migrations
 
 functions:
   UploadImage:
     handler: handler.uploadImage
     events:
       - s3:
-          bucket: sourcebucket106
+          bucket: sourcebucket103
           event: s3:ObjectCreated:*
   ResizeImage:
     handler: handler.resizeImage
