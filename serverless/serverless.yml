@@ -1,0 +1,27 @@
+service: serverless
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: ramirentuser
+  region: us-east-1
+  timeout: 30
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: "arn:aws:lambda:us-east-1:*:function:serverless-${opt:stage}-ResizeImage"
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+      Resource:
+        - "arn:aws:s3:::destinationbucket100/*"
+
+functions:
+  UploadImage:
+    handler: handler.uploadImage
+    events:
+      - s3:
+          bucket: sourcebucket106
+          event: s3:ObjectCreated:*
+  ResizeImage:
+    handler: handler.resizeImage
