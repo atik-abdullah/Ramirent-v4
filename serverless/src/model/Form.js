@@ -6,44 +6,69 @@ module.exports = sequelize.define("form", {
         autoIncrement: true,
         primaryKey: true
     },
-    formId: {
-        type: Sequelize.STRING(35),
-        allowNull: false,
-        //unique: true
-    },
-    title: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    desc: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    created: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    createdBy: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    filledBy: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    filledByName: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    timeStamp: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    fillId: {
-        type: Sequelize.STRING(20),
-        allowNull: true
-    },
-    createdAt: Sequelize.DATE,
-    updatedAt: Sequelize.DATE
 
+    // e.g. FI1020
+    formId: {
+        type: Sequelize.STRING(50),
+        allowNull: true,
+    },
+
+    // e.g. Henkilönostimen palaustustarkastus
+    title: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // e.g. Kaikki toimipisteet
+    desc: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // e.g. 1552911721294
+    created: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // e.g. jarno.piiroinen@ramirent.fi
+    createdBy: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // e.g. 000015
+    productId: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // e.g. elisa.tani@ramirent.fi
+    filledBy: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // e.g. Elisa Tani
+    filledByName: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // e.g. 1567743874719
+    timeStamp: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    },
+
+    // 000015-FI1020-2019-09-06-07_24_34:724
+    fillId: {
+        type: Sequelize.STRING(50),
+        allowNull: true
+    }
+
+}, {
+    // See page 2, 7 of sequelizeorm documentation Chapter 4. Model definition
+    createdAt: false,
+    updatedAt: false
 });

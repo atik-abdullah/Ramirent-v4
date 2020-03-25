@@ -10,10 +10,13 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
+
+      formForeignKeyId: Sequelize.INTEGER(11),
+      // e.g. "1. Tuenta-alusta ja nostorakenteet ehjät ja turvalliset. Ei tilapäiskorjauksia eikä näkyviö muodonmuutokis"
       label: Sequelize.STRING(300),
-      value: Sequelize.STRING(300),
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE
+
+      //e.g. "Kyllä"
+      value: Sequelize.STRING(300)
     });
   },
   down: (queryInterface, Sequelize) => {
